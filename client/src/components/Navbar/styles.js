@@ -6,7 +6,7 @@ export default makeStyles((theme) => ({
         //horiztional margin on both sides are -16pxs
         margin: 'auto -1vw',
         // spacing inside it's borders
-        padding: '2vh 0.1vw',
+        padding: '1vh 0.1vw',
         // shadows
         boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.3)'
     },
