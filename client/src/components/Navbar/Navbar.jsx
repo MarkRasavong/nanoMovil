@@ -1,6 +1,7 @@
 import { AppBar, Box, Button, IconButton, Toolbar, Typography } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import useStyles from './styles';
 
 const Navbar = () => {
@@ -22,7 +23,7 @@ const Navbar = () => {
                     <Typography className={classes.navtext} variant='h6' component='div' sx={{ flexGrow: 1 }}>
                         News
                     </Typography>
-                    <Button color='inherit'>Login</Button>
+                    <Button color='inherit' component={Link} to='/registration'>Registrar</Button>
                 </Toolbar>
             </header>
         </Box>

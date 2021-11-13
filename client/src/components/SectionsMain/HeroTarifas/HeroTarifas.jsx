@@ -1,6 +1,6 @@
-import { Box, Grid, Typography } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import React from 'react';
-import Tarjeta from '../Tarjeta/Tarjeta';
+import Tarjeta from '../../Tarjeta/Tarjeta';
 import useStyles from './styles';
 
 const HeroTarifas = () => {

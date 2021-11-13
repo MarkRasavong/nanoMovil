@@ -1,21 +1,23 @@
 import React from 'react';
 import './App.css';
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
+
 import Footer from './components/Footer/Footer';
-import Hero from './components/Hero/Hero';
-import HeroMoviles from './components/HeroMoviles/HeroMoviles';
-import HeroTarifas from './components/HeroTarifas/HeroTarifas';
 import Navbar from './components/Navbar/Navbar';
+import Main from './components/SectionsMain/Main';
+import ApplicationForm from './components/ApplicationForm/ApplicationForm';
 
 
 const App = () => {
     return (
-        <div>
+        <BrowserRouter>
             <Navbar />
-            <Hero />
-            <HeroTarifas />
-            <HeroMoviles />
+                <Routes>
+                    <Route path='/' element={<Main />} />
+                    <Route path='/registration' element={<ApplicationForm />} />
+                </Routes>
             <Footer />
-        </div>
+        </BrowserRouter>
     )
 }
 
