@@ -6,6 +6,14 @@ export default makeStyles((theme) => ({
     },
     image: {
         height: 'auto',
+    },
+    cardContent: {
+        dispaly: 'flex',
+        justifyContent: 'space-between', //
+    },
+    cardActions: {
+        display: 'flex', // flex-context enabled
+        justifyContent: 'flex-end', // goes to the right
     }
 }));
 

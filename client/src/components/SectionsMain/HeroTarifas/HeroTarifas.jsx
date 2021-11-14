@@ -24,6 +24,7 @@ const HeroTarifas = () => {
                         title={tarifa.name} 
                         description={tarifa.description} 
                         img={tarifa.image.url}
+                        price={tarifa.price.formatted_with_symbol}
                         buttonLink='/productos'
                         buttonText='Ir la tienda'
                         />

@@ -1,5 +1,5 @@
+import { ADD_TO_CART, DELETE_ITEM_FROM_CART, FETCH_MOVILES, FETCH_TARIFAS, EMPTY_CART, RETRIEVE_CART, UPDATE_ITEM_QTY } from '../constants';
 import { commerce } from '../lib/commerce';
-import { FETCH_MOVILES, FETCH_TARIFAS } from '../constants';
 
 export const fetchTarifas = async distpach => {
     try {
@@ -19,3 +19,48 @@ export const fetchMoviles = async dispatch => {
     };
 };
 
+
+export const fetchCart = async (dispatch) => {
+    try {
+        const items = await commerce.cart.retrieve();
+        dispatch({ type: RETRIEVE_CART, payload: items });
+    } catch (err) {
+        console.log(err);
+    };
+};
+
+export const addProductToCart = async (productId, quanitity, dispatch) => {
+    try {
+        const item = await commerce.cart.add(productId, quanitity);
+        dispatch({ type: ADD_TO_CART, payload: item.cart });
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+export const removeItemfromCart = async (productId, dispatch) => {
+    try {
+        const { cart } = await commerce.cart.remove(productId);
+        dispatch({ type: DELETE_ITEM_FROM_CART, payload: cart })
+    } catch (err) {
+        console.log(err);
+    };
+};
+
+export const emptyCart = async (dispatch) => {
+    try {
+        const { cart } = await commerce.cart.empty();
+        dispatch({ type: EMPTY_CART, payload: cart });
+    } catch (err) {
+        console.log(err);
+    };
+};
+
+export const updateItemQty = async (productId, quantity, dispatch) => {
+    try {
+        const { cart } = await commerce.cart.update(productId, { quantity });
+        dispatch({ type: UPDATE_ITEM_QTY, payload: cart })
+    } catch (err) {
+        console.log(err);
+    };
+};

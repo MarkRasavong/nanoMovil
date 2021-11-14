@@ -1,9 +1,11 @@
 import React from 'react';
-import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core'
+import { Button, Card, CardActions, CardContent, CardMedia, IconButton, Typography } from '@material-ui/core'
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import { Link } from 'react-router-dom';
 import useStyles from './styles';
+import { addProductToCart } from '../../actions/commerce';
 
-const Tarjeta = ({description, title, img, buttonText, buttonLink }) => {
+const Tarjeta = ({description, title, img, buttonText, buttonLink, price, productId, dispatch, showIcon }) => {
     const classes = useStyles();
 
     return (
@@ -15,12 +17,24 @@ const Tarjeta = ({description, title, img, buttonText, buttonLink }) => {
             alt='dancing orange'
             />
             <CardContent>
-                <Typography gutterbottom='true' variant='h5' component='div'>
-                    {title}
-                </Typography>
-                <div dangerouslySetInnerHTML={{__html : description}} />
+                <div>
+                    <Typography gutterbottom='true' variant='h5' component='div'>
+                        {title}
+                    </Typography>
+                    <Typography variant='h5'>
+                        {price}
+                    </Typography>
+                </div>
+                <Typography variant='body2' color='textSecondary' dangerouslySetInnerHTML={{__html : description}} />
             </CardContent>
-            <CardActions>
+            <CardActions disableSpacing={true} className={classes.cardActions}> {/* disableSpacing === actions don't have additional margin */}
+                { showIcon &&
+                <IconButton aria-label='Add to Cart' onClick={() => {
+                    addProductToCart(productId, 1, dispatch)
+                }}>
+                    <AddShoppingCartIcon /> 
+                </IconButton>
+                }
                 <Button size='small' component={Link} to={buttonLink}>{buttonText}</Button>
             </CardActions>
         </Card>

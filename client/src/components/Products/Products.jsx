@@ -1,24 +1,53 @@
 import { Box, FormControl, Grid, Typography, RadioGroup, FormControlLabel, Radio, CircularProgress } from '@material-ui/core';
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addProductToCart, fetchCart } from '../../actions/commerce';
 import Tarjeta from '../Tarjeta/Tarjeta';
 
 const Products = () => {
+    const dispatch = useDispatch()
     const [filter, setFilter] = useState('all');
     const { tarifas, moviles } = useSelector(state => state.ecommerce);
+
+    useEffect(() => {
+        fetchCart(dispatch)
+    }, [ dispatch, addProductToCart ])
 
     const renderTarifas = () => (
         tarifas?.map((tarifa) => (
             <Grid item xs={3} key={tarifa.id}>
-                <Tarjeta key={tarifa.id} title={tarifa.name} description={tarifa.description} img={tarifa.image.url} buttonLink='/productos' buttonText='Buy Now' />
+                <Tarjeta 
+                key={tarifa.id} 
+                title={tarifa.name} 
+                description={tarifa.description} 
+                img={tarifa.image.url} 
+                price={tarifa.price.formatted_with_symbol}
+                productId={tarifa.id}
+                showIcon={true}
+                dispatch={dispatch}
+                buttonLink='/productos' 
+                buttonText='Buy Now' />
+                
             </Grid>
         ))
     )
 
+    console.log(moviles)
+
     const renderMoviles = () => (
         moviles?.map((movil) => (
             <Grid item xs={3} key={movil.id}>
-                <Tarjeta key={movil.id} title={moviles.name} description={movil.description} img={movil.image.url} buttonLink='/productos' buttonText='Buy Now'/>
+                <Tarjeta 
+                key={movil.id} 
+                title={movil.name} 
+                description={movil.description} 
+                img={movil.image.url}
+                price={movil.price.formatted_with_symbol}
+                productId={movil.id}
+                showIcon={true}
+                dispatch={dispatch}
+                buttonLink='/productos' 
+                buttonText='Buy Now'/>
             </Grid>
             ))
     );

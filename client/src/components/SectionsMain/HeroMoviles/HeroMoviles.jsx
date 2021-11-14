@@ -17,7 +17,15 @@ const HeroMoviles = () => {
                 {
                     moviles?.map((movil) => (
                     <Grid item xs={3} key={movil.id}>
-                        <Tarjeta key={movil.id} title={moviles.name} description={movil.description} img={movil.image.url} buttonLink='/productos' buttonText='Ir la tienda' />
+                        <Tarjeta 
+                        key={movil.id} 
+                        title={movil.name} 
+                        description={movil.description} 
+                        img={movil.image.url} 
+                        buttonLink='/productos' 
+                        buttonText='Ir la tienda' 
+                        price={movil.price.formatted_with_symbol}
+                        />
                     </Grid>
                     ))
                 }
