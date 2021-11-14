@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core'
+import { Link } from 'react-router-dom';
 import useStyles from './styles';
 
-const Tarjeta = () => {
+const Tarjeta = ({description, title, img, buttonText, buttonLink }) => {
     const classes = useStyles();
 
     return (
@@ -10,19 +11,17 @@ const Tarjeta = () => {
             <CardMedia
             className={classes.image}
             component='img'
-            image="https://media1.giphy.com/media/l2JJHEW1lToNnJzxe/giphy.gif"
+            image={img}
             alt='dancing orange'
             />
             <CardContent>
-                <Typography gutterbottom variant='h5' component='div'>
-                    Text Here
+                <Typography gutterbottom='true' variant='h5' component='div'>
+                    {title}
                 </Typography>
-                <Typography variant='body2' color='text.secondary'>
-                    the content of this card goes here.
-                </Typography>
+                <div dangerouslySetInnerHTML={{__html : description}} />
             </CardContent>
             <CardActions>
-                <Button size='small'>Buy</Button>
+                <Button size='small' component={Link} to={buttonLink}>{buttonText}</Button>
             </CardActions>
         </Card>
     )

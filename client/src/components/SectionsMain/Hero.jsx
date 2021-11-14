@@ -7,7 +7,7 @@ const Hero = () => {
 
     return(
         <section className={classes.hero} id='main'>
-            <Grid container justify="center">
+            <Grid container justifyContent="center">
                 <Box item={8}>
                     <img className={classes.logo} src='https://www.pngkey.com/png/full/829-8299660_orange-yellow-circle-vector-png.png' alt='orange logo' height='220px'/>
                 </Box>

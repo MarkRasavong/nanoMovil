@@ -1,4 +1,4 @@
-import { AppBar, Box, Button, IconButton, Toolbar, Typography } from '@material-ui/core';
+import { Box, Button, IconButton, Toolbar, Typography } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -12,7 +12,7 @@ const Navbar = () => {
             <header position='static' className={classes.header}>
                 <Toolbar>
                     <IconButton
-                    size='large'
+                    size='medium'
                     edge='start'
                     color='inherit'
                     aria-label='menu'

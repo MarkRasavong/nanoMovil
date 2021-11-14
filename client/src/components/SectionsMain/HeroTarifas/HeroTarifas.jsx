@@ -1,28 +1,35 @@
 import { Grid, Typography } from '@material-ui/core';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Tarjeta from '../../Tarjeta/Tarjeta';
 import useStyles from './styles';
 
 const HeroTarifas = () => {
     const classes = useStyles();
+    const { tarifas } = useSelector(state => (state.ecommerce))
 
     return (
         <section className={classes.hero}>
-            <Grid justifyItems='center'>
+            <Grid justifyitems='center'>
             <Typography variant='h2'>
                 Top Tarifas
             </Typography>
             </Grid>
             <Grid container spacing={7}>
-                <Grid item xs={3}>
-                    <Tarjeta />
-                </Grid>
-                <Grid item xs={3}>
-                    <Tarjeta />
-                </Grid>
-                <Grid item xs={3}>
-                    <Tarjeta />
-                </Grid>
+                {
+                    tarifas?.map((tarifa) => (
+                    <Grid item xs={3} key={tarifa.id}>
+                        <Tarjeta 
+                        key={tarifa.id} 
+                        title={tarifa.name} 
+                        description={tarifa.description} 
+                        img={tarifa.image.url}
+                        buttonLink='/productos'
+                        buttonText='Ir la tienda'
+                        />
+                    </Grid>
+                    ))
+                }
             </Grid>
         </section>
     )
