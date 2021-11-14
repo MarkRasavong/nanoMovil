@@ -9,6 +9,7 @@ import { fetchCart, fetchMoviles, fetchTarifas } from './actions/commerce';
 import { useDispatch } from 'react-redux';
 import Products from './components/Products/Products';
 import Cart from './components/Cart/Cart';
+import Checkout from './components/CheckoutComponents/Checkout/Checkout';
 
 const App = () => {
     const dispatch = useDispatch();
@@ -26,6 +27,7 @@ const App = () => {
                     <Route path='/' element={<Main />} />
                     <Route path='/productos' element={<Products />} />
                     <Route path='/cart' element={<Cart />} />
+                    <Route path='/checkout' element={<Checkout />} />
                 </Routes>
             <Footer />
         </BrowserRouter>

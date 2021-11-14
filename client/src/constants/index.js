@@ -6,3 +6,4 @@ export const DELETE_ITEM_FROM_CART = 'DELETE_ITEM_FROM_CART';
 export const EMPTY_CART = 'EMPTY_CART';
 export const UPDATE_ITEM_QTY = 'UPDATE_ITEM_QTY';
 export const RETRIEVE_CART = 'RETRIEVE_CART';
+export const REFRESH_CART = 'REFRESH_CART';

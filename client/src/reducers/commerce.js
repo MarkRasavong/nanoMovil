@@ -1,4 +1,4 @@
-import { ADD_TO_CART, DELETE_ITEM_FROM_CART, EMPTY_CART, FETCH_MOVILES, FETCH_TARIFAS, RETRIEVE_CART, UPDATE_ITEM_QTY } from '../constants';
+import { ADD_TO_CART, REFRESH_CART, DELETE_ITEM_FROM_CART, EMPTY_CART, FETCH_MOVILES, FETCH_TARIFAS, RETRIEVE_CART, UPDATE_ITEM_QTY } from '../constants';
 
 const commerceReducer = (state = { tarifas: null, moviles: null, cart: null }, action) => {
     switch (action.type) {
@@ -11,6 +11,7 @@ const commerceReducer = (state = { tarifas: null, moviles: null, cart: null }, a
         case DELETE_ITEM_FROM_CART:
         case ADD_TO_CART:
         case EMPTY_CART:
+        case REFRESH_CART:
             return { ...state, cart: action.payload };
         default:
             return state
