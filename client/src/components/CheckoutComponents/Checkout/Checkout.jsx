@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Button, CircularProgress, CssBaseline, Divider, Paper, Step, StepLabel, Stepper, Typography} from '@material-ui/core';
 import AddressForm from '../AddressForm';
 import PaymentForm from '../PaymentForm';
@@ -9,7 +9,7 @@ import { commerce } from '../../../lib/commerce';
 import { REFRESH_CART } from '../../../constants';
 
 //what is shown what step the user is at. Primary is shipping and the other is payment... Can use ternary fn. or switch 
-const pasitos = ['Shipping Address', 'Payment Address'];
+const pasitos = ['Shipping Address', 'Payment Information'];
 
 const Checkout = () => {
     const dispatch = useDispatch();
@@ -55,6 +55,8 @@ const Checkout = () => {
         nextStep();
     };
 
+
+
     //refreshCart when commerce captures the order&&tokenId
 const refreshCart = async () => {
     try {
@@ -65,7 +67,9 @@ const refreshCart = async () => {
     }
 }
 
-// the set checkoutToken (from generateToken & state), newOrder from the data that the user submitted
+
+
+  // the set checkoutToken (from generateToken & state), newOrder from the data that the user submitted
 const onCaptureCheckout = async (checkoutTokenId, newOrder) => {
     try {
         const incomingOrder = await commerce.checkout.capture(checkoutTokenId, newOrder);
@@ -75,7 +79,6 @@ const onCaptureCheckout = async (checkoutTokenId, newOrder) => {
         setErrorMsg(error.data.error.message);
     }
 };
-
 
 
 let Confirmation = () => (order.customer ? (

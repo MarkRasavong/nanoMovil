@@ -1,4 +1,4 @@
-import { ADD_TO_CART, DELETE_ITEM_FROM_CART, FETCH_MOVILES, FETCH_TARIFAS, EMPTY_CART, RETRIEVE_CART, UPDATE_ITEM_QTY } from '../constants';
+import { FETCH_TOP_MOVILES, ADD_TO_CART, DELETE_ITEM_FROM_CART, FETCH_MOVILES, FETCH_TARIFAS, EMPTY_CART, RETRIEVE_CART, UPDATE_ITEM_QTY } from '../constants';
 import { commerce } from '../lib/commerce';
 
 export const fetchTarifas = async distpach => {
@@ -19,6 +19,17 @@ export const fetchMoviles = async dispatch => {
     };
 };
 
+export const fetchTopMoviles = async dispatch => {
+    try {
+        const { data } = await commerce.products.list({
+            category_slug: ['moviles'],
+            limit: 3
+        });
+        dispatch({ type: FETCH_TOP_MOVILES, payload: data })
+    } catch (err) {
+        console.log(err);
+    }
+}
 
 export const fetchCart = async (dispatch) => {
     try {

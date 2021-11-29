@@ -5,7 +5,7 @@ import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
 import Main from './components/SectionsMain/Main';
-import { fetchCart, fetchMoviles, fetchTarifas } from './actions/commerce';
+import { fetchCart, fetchMoviles, fetchTarifas, fetchTopMoviles } from './actions/commerce';
 import { useDispatch } from 'react-redux';
 import Products from './components/Products/Products';
 import Cart from './components/Cart/Cart';
@@ -18,6 +18,7 @@ const App = () => {
         fetchTarifas(dispatch);
         fetchMoviles(dispatch);
         fetchCart(dispatch);
+        fetchTopMoviles(dispatch);
     }, [dispatch]);
 
     return (

@@ -15,15 +15,6 @@ const Navbar = () => {
         <Box sx={{ flexGrow: 1 }}>
             <header position='static' className={classes.header}>
                 <Toolbar>
-                    <IconButton
-                    size='medium'
-                    edge='start'
-                    color='inherit'
-                    aria-label='menu'
-                    sx={{ mr: 2 }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
                     <Typography className={classes.navtext} variant='h6' component={Link} to='/' sx={{ flexGrow: 1 }}>
                         Nano Movil
                     </Typography>

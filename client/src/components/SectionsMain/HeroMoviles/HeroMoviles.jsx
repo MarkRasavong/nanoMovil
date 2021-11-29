@@ -6,7 +6,7 @@ import useStyles from './styles';
 
 const HeroMoviles = () => {
     const classes = useStyles();
-    const { moviles } = useSelector(state => (state.ecommerce))
+    const { movilesTop } = useSelector(state => (state.ecommerce))
 
     return (
         <section className={classes.hero} id='moviles'>
@@ -15,7 +15,7 @@ const HeroMoviles = () => {
             </Typography>
             <Grid container spacing={7}>
                 {
-                    moviles?.map((movil) => (
+                    movilesTop?.map((movil) => (
                     <Grid item xs={3} key={movil.id}>
                         <Tarjeta 
                         key={movil.id} 
