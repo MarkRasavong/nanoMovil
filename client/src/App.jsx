@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 import Products from './components/Products/Products';
 import Cart from './components/Cart/Cart';
 import Checkout from './components/CheckoutComponents/Checkout/Checkout';
-import Auth from './components/Auth/Auth';
+import Auth from './components/Auth/Auth.jsx';
 
 const App = () => {
     const dispatch = useDispatch();
