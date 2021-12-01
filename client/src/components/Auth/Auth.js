@@ -2,13 +2,15 @@ import { Avatar, Button, Container, Grid, Paper, Typography } from '@material-ui
 import React, { useState } from 'react'
 import { GoogleLogin } from 'react-google-login';
 
-import LockOutlinedIcon from '@material-ui/icons/LockOutlinedIcon';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import useStyles from './styles';
 import Icon from './icon';
 import Input from './Input';
 
 const initState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
 
 const Auth = () => {
+    const classes = useStyles();
     const [form, setForm] = useState(initState);
     const [isSignedUp, setIsSignedUp] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
@@ -38,13 +40,13 @@ const Auth = () => {
     const renderGoogleSuccess = () => console.log('Google sign in was successful, please save the token');
 
     return (
-        <Container component='main' maxWidth='xs'>
-            <Paper>
-                <Avatar>
+        <Container component='main' maxWidth='sm'>
+            <Paper className={classes.registrationBox}>
+                <Avatar className={classes.avatarIcon}>
                     <LockOutlinedIcon />
                 </Avatar>
                 <Typography component='h1' variant='h5'>{isSignedUp ? 'Sign Up' : 'Sign In'}</Typography>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className={classes.form}>
                     <Grid container spacing={2}>
                         {
                             isSignedUp && (
@@ -58,12 +60,12 @@ const Auth = () => {
                         <Input name='password' label='Password' handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword} />
                         {isSignedUp && <Input name='confirmPassword' label='Repeat Password' handleChange={handleChange} type='password' />}
                     </Grid>
-                    <Button tyoe='submit' fullWidth={true} variant='contained' color='primary'>
+                    <Button tyoe='submit' fullWidth={true} variant='contained' color='primary' className={classes.submit}>
                         {isSignedUp ? 'Continue Regestration' : 'Sign In'}
                     </Button>
                     <GoogleLogin clientId='314028582268-281g77vg0e862c5j81qml9ljjcntdo0f.apps.googleusercontent.com'
                         render={(renderProps) => (
-                            <Button color='primary' fullWidth={true} onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<Icon />} variant='contained'>
+                            <Button className={classes.googleButton} color='primary' fullWidth={true} onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<Icon />} variant='contained'>
                                 Google Sign In
                             </Button>
                         )}
