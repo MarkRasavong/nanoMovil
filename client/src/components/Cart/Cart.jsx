@@ -9,7 +9,7 @@ import useStyles from './styles.js';
 const Cart = () => {
     const dispatch = useDispatch();
     const { cart } = useSelector(state => state.ecommerce);
-    const nav = useNavigate();
+    let nav = useNavigate();
     const classes = useStyles();
 
     const clearedCart = () => (

@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 
 import UserModel from '../models/user.js';
 
-const secret = process.env.SECRETO;
+const secret = 'test'; //process.env.SECRETO;
 
 export const signin = async (req, res) => {
     const { email, password } = req.body;
@@ -27,7 +27,7 @@ export const register = async (req, res) => {
     const { email, password, firstName, lastName } = req.body;
 
     try {
-        const existingUser = await User.findOne({ email });
+        const existingUser = await UserModel.findOne({ email });
 
         if (existingUser) return res.status(400).json({ message: 'User Already Exists' });
 
@@ -40,5 +40,6 @@ export const register = async (req, res) => {
         res.status(201).json({ result, token });
     } catch (err) {
         res.status(500).json({ message: err.message });
+        console.log(err);
     }
 };

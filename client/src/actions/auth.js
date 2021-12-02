@@ -1,8 +1,10 @@
 import { AUTH } from '../constants';
+import * as api from '../api';
 
 export const signin = (formData, nav) => async dispatch => {
     try {
-        await dispatch({ type: AUTH, data: formData })
+        const { data } = await api.signinUser(formData);
+        dispatch({ type: AUTH, data })
         nav('/');
     } catch (err) {
         console.log(err);
@@ -11,7 +13,8 @@ export const signin = (formData, nav) => async dispatch => {
 
 export const register = (formData, nav) => async dispatch => {
     try {
-        await dispatch({ type: AUTH, data: formData });
+        const { data } = await api.registerUser(formData);
+        dispatch({ type: AUTH, data });
         nav('/');
     } catch (err) {
         console.log(err);

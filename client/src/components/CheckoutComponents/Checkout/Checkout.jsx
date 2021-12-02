@@ -14,7 +14,7 @@ const pasitos = ['Shipping Address', 'Payment Information'];
 const Checkout = () => {
     const dispatch = useDispatch();
     const classes = useStyles();
-    const nav = useNavigate();
+    let nav = useNavigate();
     const { cart } = useSelector(state => state.ecommerce);
 
     const [ activeStep, setActiveStep ] = useState(0);

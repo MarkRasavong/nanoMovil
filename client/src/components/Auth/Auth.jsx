@@ -8,6 +8,7 @@ import useStyles from './styles';
 import Icon from './icon';
 import Input from './Input';
 import { useNavigate } from 'react-router-dom';
+import { AUTH } from '../../constants';
 import { signin, register } from '../../actions/auth';
 
 const initState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
@@ -15,7 +16,7 @@ const initState = { firstName: '', lastName: '', email: '', password: '', confir
 const Auth = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
-    const nav = useNavigate();
+    let nav = useNavigate();
     const [form, setForm] = useState(initState);
     const [isSignedUp, setIsSignedUp] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
@@ -41,14 +42,22 @@ const Auth = () => {
         } else {
             dispatch(register(form, nav));
         };
-
-        console.log('dispatched!')
     };
 
 
     const renderGoogleFailure = () => console.log('Google sign in was unsuccessful, try again later');
 
-    const renderGoogleSuccess = () => console.log('Google sign in was successful, please save the token');
+    const renderGoogleSuccess = async (res) => {
+        const result = res?.profileObj;
+        const token = res?.tokenId;
+
+        try {
+            dispatch({ type: AUTH, data: { result, token } });
+            nav('/');
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     return (
         <Container component='main' maxWidth='sm'>
