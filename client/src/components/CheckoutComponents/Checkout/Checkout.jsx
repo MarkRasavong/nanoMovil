@@ -33,7 +33,7 @@ const Checkout = () => {
                 try {
                     const token = await commerce.checkout.generateToken(cart.id, { type: 'cart' });
                     //awaits to generate a token which can init the process of capturing an order from cart.
-
+                    
                     setCheckoutToken(token);
                 } catch {
                     if (activeStep !== pasitos.length) nav('/');
