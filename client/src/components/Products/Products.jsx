@@ -1,17 +1,20 @@
-import { Box, FormControl, Grid, Typography, RadioGroup, FormControlLabel, Radio, CircularProgress } from '@material-ui/core';
+import { Box, FormControl, Grid, Typography, RadioGroup, FormControlLabel, Radio } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addProductToCart, fetchCart } from '../../actions/commerce';
 import Tarjeta from '../Tarjeta/Tarjeta';
+import useStyles from './styles.js';
+import taronja from '../../images/taronja.gif'
 
 const Products = () => {
+    const classes = useStyles();
     const dispatch = useDispatch()
     const [filter, setFilter] = useState('all');
     const { tarifas, moviles } = useSelector(state => state.ecommerce);
 
     useEffect(() => {
         fetchCart(dispatch)
-    }, [ dispatch, addProductToCart ])
+    }, [ dispatch ])
 
     const renderTarifas = () => (
         tarifas?.map((tarifa) => (
@@ -26,13 +29,13 @@ const Products = () => {
                 showIcon={true}
                 dispatch={dispatch}
                 buttonLink='/productos' 
-                buttonText='Buy Now' />
-                
+                buttonText='Añadir a la cesta'
+                onClick={() => {
+                    addProductToCart(tarifa.id, 1, dispatch)
+                }}/>
             </Grid>
         ))
     )
-
-    console.log(moviles)
 
     const renderMoviles = () => (
         moviles?.map((movil) => (
@@ -47,7 +50,10 @@ const Products = () => {
                 showIcon={true}
                 dispatch={dispatch}
                 buttonLink='/productos' 
-                buttonText='Buy Now'/>
+                buttonText='Añadir a la cesta'
+                onClick={() => {
+                    addProductToCart(movil.id, 1, dispatch)
+                }}/>
             </Grid>
             ))
     );
@@ -61,18 +67,18 @@ const Products = () => {
             case 'moviles':
                 return <Grid container spacing={7}> {renderMoviles()} </Grid>
             default:
-                return <CircularProgress />;
+                return <img src={taronja} alt="dancing orange as loading screen" />;
         }
     }
 
 
     return (
         <Box>
-            <Typography variant='h2'>
+            <Typography variant='h2' className={classes.headerText}>
                 Nuestro Productos
             </Typography>
             <FormControl component='fieldset'>
-                <RadioGroup row aria-label='filter' name='row-radio-buttons-group'>
+                <RadioGroup row aria-label='filter' name='row-radio-buttons-group' className={classes.radioGroup}>
                     <FormControlLabel onClick={() => setFilter('all')} value='all' control={<Radio />} label='Todos' />
                     <FormControlLabel onClick={() => setFilter('tarifas')} value='tarifas' control={<Radio />} label='Tarifas' />
                     <FormControlLabel onClick={() => setFilter('moviles')} value='moviles' control={<Radio />} label='Moviles' />

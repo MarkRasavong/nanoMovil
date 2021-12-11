@@ -33,6 +33,9 @@ export default makeStyles((theme) => ({
     stepper: {
         padding: theme.spacing(3, 0, 5),
     },
+    step: {
+        color: 'black'
+    },
     buttons: {
         display: 'flex',
         justifyContent: 'flex-end',
@@ -49,4 +52,8 @@ export default makeStyles((theme) => ({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    headerText: {
+        color: 'black',
+        fontFamily: 'var(--font-header)'
+    }
 }));

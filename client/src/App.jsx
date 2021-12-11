@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './App.css';
-import { Route, BrowserRouter, Routes, Navigate } from 'react-router-dom';
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
 
 import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
@@ -10,12 +10,11 @@ import { useDispatch } from 'react-redux';
 import Products from './components/Products/Products';
 import Cart from './components/Cart/Cart';
 import Checkout from './components/CheckoutComponents/Checkout/Checkout';
-import Auth from './components/Auth/Auth.jsx';
-import UserAdmin from './components/UserAdmin/UserAdmin';
+import { ThemeProvider } from '@material-ui/core';
+import { theme } from './mui_theme';
 
 const App = () => {
     const dispatch = useDispatch();
-    const user = JSON.parse(localStorage.getItem('profile'));
 
     useEffect(() => {
         fetchTarifas(dispatch);
@@ -27,16 +26,16 @@ const App = () => {
 
     return (
         <BrowserRouter>
-            <Navbar />
-                <Routes>
-                    <Route path='/' element={<Main />} />
-                    <Route path='/productos' element={<Products />} />
-                    <Route path='/cart' element={<Cart />} />
-                    <Route path='/checkout' element={<Checkout />} />
-                    <Route path='/authorization' element={<Auth />} />
-                    <Route path='/user-admin' element={!user ? <Navigate to='/authorization' />: <UserAdmin />} />
-                </Routes>
-            <Footer />
+            <ThemeProvider theme={theme}>
+                <Navbar />
+                    <Routes>
+                        <Route path='/' element={<Main />} />
+                        <Route path='/productos' element={<Products />} />
+                        <Route path='/cart' element={<Cart />} />
+                        <Route path='/checkout' element={<Checkout />} />
+                    </Routes>
+                <Footer />
+            </ThemeProvider>
         </BrowserRouter>
     )
 }

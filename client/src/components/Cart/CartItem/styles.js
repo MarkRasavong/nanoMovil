@@ -8,11 +8,24 @@ export default makeStyles(() => ({
         display: 'flex',
         justifyContent: 'space-between',
     },
+    cardContentText: {
+        fontFamily: 'var(--font-header)',
+        color: 'black'
+    },
     cartActions: {
         justifyContent: 'space-between',
     },
     buttons: {
         display: 'flex',
-        alignItems: 'center',
     },
+    cardActionsButton: {
+        backgroundColor: 'var(--vlcOrange)'
+    },
+    removeDiv: {
+        display: 'flex',
+        justifyContent: 'flex-end',
+    },
+    quantity: {
+        margin: '5px 10px 0'
+    }
 }));

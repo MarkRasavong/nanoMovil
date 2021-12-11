@@ -8,10 +8,20 @@ export default makeStyles((theme) => ({
         // spacing inside it's borders
         padding: '1vh 0.1vw',
         // shadows
-        boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.3)'
+        boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.3)',
     },
     navtext: {
         color: '#fff',
         fontWeight: '200',
+    },
+    navbarLogo: {
+        height: '5.5rem'
+    },
+    menuButton: {
+        position: 'relative',
+        marginTop: '20px',
+    },
+    typographyText: {
+        fontFamily: 'var(--font-header)',
     }
 }))

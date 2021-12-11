@@ -14,6 +14,15 @@ export default makeStyles((theme) => ({
     cardActions: {
         display: 'flex', // flex-context enabled
         justifyContent: 'flex-end', // goes to the right
-    }
+    },
+    apiText: {
+        fontFamily: 'var(--font-standard)',
+        marginTop: '1px',
+        color: 'black'
+    },
+    button: {
+        backgroundColor: 'var(--nanoBlue)',
+        color: 'var(--vlcWhite)'
+    },
 }));
 

@@ -1,11 +1,11 @@
 import React from 'react';
-import Hero from './Hero';
+import HeroSection from './HeroSection';
 import HeroMoviles from './HeroMoviles/HeroMoviles';
 import HeroTarifas from './HeroTarifas/HeroTarifas';
 
 const Main = () => (
         <div>
-            <Hero />
+            <HeroSection />
             <HeroTarifas/>
             <HeroMoviles/>
         </div>

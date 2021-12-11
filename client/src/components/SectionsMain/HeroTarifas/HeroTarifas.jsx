@@ -11,8 +11,8 @@ const HeroTarifas = () => {
     return (
         <section className={classes.hero}>
             <Grid justifyitems='center'>
-            <Typography variant='h2'>
-                Top Tarifas
+            <Typography variant='h2' className={classes.headerText}>
+                Las Tarifas
             </Typography>
             </Grid>
             <Grid container spacing={7}>

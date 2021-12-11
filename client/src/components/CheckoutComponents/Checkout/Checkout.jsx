@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { Button, CircularProgress, CssBaseline, Divider, Paper, Step, StepLabel, Stepper, Typography} from '@material-ui/core';
+import { Button, CssBaseline, Divider, Paper, Step, StepLabel, Stepper, Typography} from '@material-ui/core';
 import AddressForm from '../AddressForm';
 import PaymentForm from '../PaymentForm';
 import useStyles from './styles';
 import { commerce } from '../../../lib/commerce';
 import { REFRESH_CART } from '../../../constants';
+import taronja from '../../../images/taronja.gif';
 
 //what is shown what step the user is at. Primary is shipping and the other is payment... Can use ternary fn. or switch 
-const pasitos = ['Shipping Address', 'Payment Information'];
+const pasitos = ['Dirección de envío', 'Método de pago'];
 
 const Checkout = () => {
     const dispatch = useDispatch();
@@ -41,7 +42,7 @@ const Checkout = () => {
             };
             generateToken();
         }
-    }, [cart]);
+    }, [activeStep, nav, cart]);
 
     //creates timeout if order is taking long to process payment TESTING PURPOSES!
     const timeOut = () => {
@@ -84,33 +85,34 @@ const onCaptureCheckout = async (checkoutTokenId, newOrder) => {
 let Confirmation = () => (order.customer ? (
     <React.Fragment>
         <div>
-            <Typography variant="h5">Thank You for your purchase, {order.customer.firstname} {order.customer.lastname}!</Typography>
+            <Typography variant="h5">Gràcies, {order.customer.firstname} {order.customer.lastname}!</Typography>
             <Divider className={classes.divider} />
             <Typography variant='subtitle2'>Order ref: {order.customer_reference}</Typography>
         </div>
         <br />
-        <Button component={Link} variant='outlined' type='button' to='/'>Back to Home</Button>
+        <Button component={Link} variant='contained' color='secondary' type='button' to='/'>Volver</Button>
     </React.Fragment>
 ): isFinished ? (
     <React.Fragment>
         <div>
-            <Typography variant='h5'>Thank you for your purchase!</Typography>
+            <Typography variant='h5'>Gràcies, para su pedido!</Typography>
             <Divider className={classes.divider} />
         </div>
-        <Button component={Link} to='/' variant='outlined' type='button'>Back to Home</Button>
+        <Button component={Link} to='/' variant='contained' color='secondary' type='button'>Volver</Button>
     </React.Fragment>
 ) :(
     <div className={classes.spinner}>
-        <CircularProgress />
+        <img src={taronja} alt="dancing orange as loading screen" />
     </div>
 ));
 
 if(errorMsg) {
     Confirmation = () => (
         <React.Fragment>
-            <Typography variant='h5'>Error: {errorMsg}</Typography>
+            <Typography style={{ color: 'black', fontFamily: 'var(--font-header)'}} variant='h5'>Error:
+Los datos no son válidos.</Typography>
             <br />
-            <Button component={Link} variant='outlined' type='button' to='/'>Back to Home</Button>
+            <Button component={Link} variant='contained' color='secondary' type='button' to='/'>Volver</Button>
         </React.Fragment>
     )
 }
@@ -125,7 +127,7 @@ return (
         <div className={classes.layout}/>
         <main className={classes.layout}>
             <Paper className={classes.paper}>
-                <Typography variant='h4' align='center'>Checkout</Typography>
+                <Typography variant='h4' align='center' className={classes.headerText}>Tramitar pedido</Typography>
 
                 <Stepper activeStep={activeStep} className={classes.stepper}>
                     {pasitos.map(label => (

@@ -7,4 +7,9 @@ export default makeStyles((theme) => ({
         margin: 'auto -1vw',
         paddingLeft: '20vw',
     },
+    headerText: {
+        fontFamily: 'var(--font-header)',
+        marginBottom: '1vh',
+        color: 'var(--vlcWhite)'
+    }
 }))

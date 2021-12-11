@@ -4,6 +4,9 @@ export default makeStyles((theme) => ({
     toolbar: theme.mixins.toolbar,
     title: {
         marginTop: '5%',
+        marginBottom: '2%',
+        fontFamily: 'var(--font-header)',
+        color: 'var(--vlcWhite)'
     },
     emptyButton: {
         minWidth: '150px', //set minimum width of an alament
@@ -16,6 +19,7 @@ export default makeStyles((theme) => ({
     },
     checkoutButton: {
         minWidth: '150px',
+        backgroundColor: 'var(--vlcOrange)'
     },
     link: {
         textDecoration: 'none',
@@ -26,4 +30,7 @@ export default makeStyles((theme) => ({
         width: '100%',
         justifyContent: 'space-between',
     },
+    subtotal: {
+        fontFamily: 'var(--font-header)'
+    }
 }));

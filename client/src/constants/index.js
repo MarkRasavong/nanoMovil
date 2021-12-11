@@ -8,6 +8,3 @@ export const UPDATE_ITEM_QTY = 'UPDATE_ITEM_QTY';
 export const RETRIEVE_CART = 'RETRIEVE_CART';
 export const REFRESH_CART = 'REFRESH_CART';
 export const FETCH_TOP_MOVILES = 'FETCH_TOP_MOVILES';
-
-export const AUTH = 'AUTH';
-export const LOGOUT = 'LOGOUT';
