@@ -10,6 +10,7 @@ export default makeStyles((theme) => ({
         padding: '1vh 0.1vw',
         // shadows
         boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.3)',
+
     },
     navtext: {
         color: '#fff',
@@ -21,6 +22,9 @@ export default makeStyles((theme) => ({
     menuButton: {
         position: 'relative',
         marginTop: '20px',
+        [theme.breakpoints.between('xs', 'sm')]: {
+            display: 'none',
+        }
     },
     typographyText: {
         fontFamily: 'var(--font-header)',

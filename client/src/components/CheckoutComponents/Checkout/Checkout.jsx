@@ -42,7 +42,12 @@ const Checkout = () => {
             };
             generateToken();
         }
-    }, [activeStep, nav, cart]);
+    }, [cart]);
+
+    const next = (data) => {
+        setShipppingData(data);
+        nextStep();
+    };
 
     //creates timeout if order is taking long to process payment TESTING PURPOSES!
     const timeOut = () => {
@@ -50,13 +55,6 @@ const Checkout = () => {
             setIsFinished(true);
         }, 3000);
     };
-    
-    const next = (data) => {
-        setShipppingData(data);
-        nextStep();
-    };
-
-
 
     //refreshCart when commerce captures the order&&tokenId
 const refreshCart = async () => {

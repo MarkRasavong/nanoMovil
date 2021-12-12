@@ -61,11 +61,11 @@ const Products = () => {
     const renderLogic = () => {
         switch (filter) {
             case 'all':
-                return <Grid container spacing={3} justifyItems='center'> {renderMoviles()} {renderTarifas()} </Grid>
+                return <Grid container spacing={3} justifyitems='center'> {renderMoviles()} {renderTarifas()} </Grid>
             case 'tarifas':
-                return <Grid container spacing={3} justifyItems='center'> {renderTarifas()} </Grid>
+                return <Grid container spacing={3} justifyitems='center'> {renderTarifas()} </Grid>
             case 'moviles':
-                return <Grid container spacing={3} justifyItems='center'> {renderMoviles()} </Grid>
+                return <Grid container spacing={3} justifyitems='center'> {renderMoviles()} </Grid>
             default:
                 return <img src={taronja} alt="dancing orange as loading screen" />;
         }

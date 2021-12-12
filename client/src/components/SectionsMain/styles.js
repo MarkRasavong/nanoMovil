@@ -54,5 +54,13 @@ export default makeStyles((theme) => ({
     standardText: {
         fontFamily: 'var(--font-standard)',
         color: 'var(--vlcWhite)'
+    },
+    buttonPrincipal: {
+        [theme.breakpoints.up('sm')]: {
+            display: 'none',
+        },
+        [theme.breakpoints.between('xs', 'sm')]: {
+            display: 'block'
+        },
     }
 }))

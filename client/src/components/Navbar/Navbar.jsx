@@ -13,14 +13,14 @@ const Navbar = () => {
     let nav = useNavigate();
 
     return (
-        <Box>
+        <Box >
             <header className={classes.header}>
                 <Toolbar>
                         <Grid container>
                             <Link to='/'>
                                 <img src={navbarLogo} alt='navbar logo of nano movil' className={classes.navbarLogo}/>
                             </Link>
-                            <Grid className={classes.menuButton}>
+                            <Grid item className={classes.menuButton}>
                                 <Button component={Link} to='/productos'>
                                     <Typography variant='h6' className={classes.typographyText}>Productos</Typography>
                                 </Button>

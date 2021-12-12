@@ -6,7 +6,6 @@ export default makeStyles(() => ({
         fontFamily: 'var(--font-header)',
     },
     listItem: {
-        padding: '10px 0',
         color: 'black',
     }
 }))
