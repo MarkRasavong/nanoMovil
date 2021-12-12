@@ -18,7 +18,7 @@ const Products = () => {
 
     const renderTarifas = () => (
         tarifas?.map((tarifa) => (
-            <Grid item xs={3} key={tarifa.id}>
+            <Grid item sm={12} md={6} lg={3} key={tarifa.id}>
                 <Tarjeta 
                 key={tarifa.id} 
                 title={tarifa.name} 
@@ -39,7 +39,7 @@ const Products = () => {
 
     const renderMoviles = () => (
         moviles?.map((movil) => (
-            <Grid item xs={3} key={movil.id}>
+            <Grid item sm={12} md={6} lg={3} key={movil.id}>
                 <Tarjeta 
                 key={movil.id} 
                 title={movil.name} 
@@ -61,11 +61,11 @@ const Products = () => {
     const renderLogic = () => {
         switch (filter) {
             case 'all':
-                return <Grid container spacing={7}> {renderMoviles()} {renderTarifas()} </Grid>
+                return <Grid container spacing={3} justifyItems='center'> {renderMoviles()} {renderTarifas()} </Grid>
             case 'tarifas':
-                return <Grid container spacing={7}> {renderTarifas()} </Grid>
+                return <Grid container spacing={3} justifyItems='center'> {renderTarifas()} </Grid>
             case 'moviles':
-                return <Grid container spacing={7}> {renderMoviles()} </Grid>
+                return <Grid container spacing={3} justifyItems='center'> {renderMoviles()} </Grid>
             default:
                 return <img src={taronja} alt="dancing orange as loading screen" />;
         }

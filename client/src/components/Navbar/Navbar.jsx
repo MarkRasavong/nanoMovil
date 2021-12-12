@@ -14,7 +14,7 @@ const Navbar = () => {
 
     return (
         <Box>
-            <header position='static' className={classes.header}>
+            <header className={classes.header}>
                 <Toolbar>
                         <Grid container>
                             <Link to='/'>

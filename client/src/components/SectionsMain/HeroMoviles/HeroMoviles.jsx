@@ -16,7 +16,7 @@ const HeroMoviles = () => {
             <Grid container spacing={7}>
                 {
                     movilesTop?.map((movil) => (
-                    <Grid item xs={3} key={movil.id}>
+                    <Grid item xs={12} md={6} lg={3} key={movil.id}>
                         <Tarjeta 
                         key={movil.id} 
                         title={movil.name} 

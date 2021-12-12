@@ -1,0 +1,48 @@
+hero {
+  height: 100%;
+  width: 100vh;
+  margin: auto -1vw;
+}
+
+logo {
+  position: relative;
+  bottom: 2vh;
+  right: 0.5vw;
+  z-index: -1;
+}
+
+headerText {
+  font-family: var(--font-header);
+  color: var(--vlcWhite);
+}
+
+standardText {
+  font-family: var(--font-standard);
+  color: var(--vlcWhite);
+}
+
+.imageHero {
+  height: 70vh;
+}
+
+.heroTitle {
+  margin-top: 10vh;
+}
+
+@media screen and (max-width: 1050px) {
+  .imageHero {
+    height: 53vh;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .imageHero {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .imageHero {
+    display: none;
+  }
+}

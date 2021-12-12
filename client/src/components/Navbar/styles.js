@@ -2,6 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
     header: {
+        position: 'relative',
         //margin are use to create space around elements outside the objects borders. vertical = auto spacing
         //horiztional margin on both sides are -16pxs
         margin: 'auto -1vw',

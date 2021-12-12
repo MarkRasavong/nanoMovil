@@ -2,13 +2,14 @@ import React from 'react';
 import HeroSection from './HeroSection';
 import HeroMoviles from './HeroMoviles/HeroMoviles';
 import HeroTarifas from './HeroTarifas/HeroTarifas';
+import { Container } from '@material-ui/core';
 
 const Main = () => (
-        <div>
+        <Container container fluid>
             <HeroSection />
             <HeroTarifas/>
             <HeroMoviles/>
-        </div>
+        </Container>
 )
 
-export default Main;
+export default Main

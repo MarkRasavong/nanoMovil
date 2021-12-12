@@ -18,7 +18,7 @@ const HeroTarifas = () => {
             <Grid container spacing={7}>
                 {
                     tarifas?.map((tarifa) => (
-                    <Grid item xs={3} key={tarifa.id}>
+                    <Grid item xs={12} md={6} lg={3} key={tarifa.id}>
                         <Tarjeta 
                         key={tarifa.id} 
                         title={tarifa.name} 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core'
+import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import useStyles from './styles';
 
@@ -7,7 +7,7 @@ const Tarjeta = ({description, title, img, buttonText, buttonLink, price, onClic
     const classes = useStyles();
 
     return (
-        <Card sx={{ maxWidth: 345 }} className={classes.body}>
+        <Card className={classes.body}>
             <CardMedia
             className={classes.image}
             component='img'

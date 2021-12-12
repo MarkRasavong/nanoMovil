@@ -7,9 +7,9 @@ const Footer = () => {
 
     return(
         <footer className={classes.footer}>
-            <p className={classes.footerText}>Copyright &copy; {jaar}</p>
+            <p className={classes.footerText}>Mark Rasavong &copy; {jaar}</p>
         </footer>
     )
 }
 
-export default Footer;
+export default Footer

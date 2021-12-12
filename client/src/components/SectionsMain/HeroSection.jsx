@@ -17,8 +17,8 @@ const HeroSection = () => {
                     Nuestro Móvil de La Terreta
                  </Typography>
                 </Grid>
-                <Box item={7} className={classes.logo}>
-                    <img src={Hero} alt='nano valencian hero section' height='575vh'/>
+                <Box item className={classes.logo}>
+                    <img src={Hero} alt='nano valencian hero section' className={`${classes.imageSize}`}/>
                 </Box>
             </Grid>
         </section>
