@@ -11,7 +11,7 @@ const HeroMoviles = () => {
     return (
         <section className={classes.hero} id='moviles'>
             <Typography variant='h2' className={classes.headerText}>
-                Los más vendidos móviles
+                Los móviles más vendidos
             </Typography>
             <Grid container spacing={7}>
                 {

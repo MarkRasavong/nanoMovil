@@ -24,7 +24,7 @@ const CartItem = ({ item }) => {
                 </Container>
                 <Container className={classes.removeDiv}>
                     <Button variant='contained' type='button' color='secondary' onClick={() => removeItemfromCart(item.id, dispatch)}>
-                        Remove
+                        Eliminar
                     </Button>
                 </Container>
             </CardActions>
