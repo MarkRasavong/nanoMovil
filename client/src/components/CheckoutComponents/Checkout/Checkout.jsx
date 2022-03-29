@@ -16,7 +16,7 @@ const Checkout = () => {
     const dispatch = useDispatch();
     const classes = useStyles();
     let nav = useNavigate();
-    const { cart } = useSelector(state => state.ecommerce);
+    const { cart } = useSelector(state => state?.ecommerce);
 
     const [ activeStep, setActiveStep ] = useState(0);
     const [ checkoutToken, setCheckoutToken ] = useState(null);
@@ -42,7 +42,7 @@ const Checkout = () => {
             };
             generateToken();
         }
-    }, [cart]);
+    }, [cart, nav]);
 
     const next = (data) => {
         setShipppingData(data);
